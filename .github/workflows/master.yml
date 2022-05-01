@@ -17,11 +17,11 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: server286.web-hosting.com
-          protocol: ftps
-          port: 21098
+          protocol: ftp
+          port: 21
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          server-dir: /home/webutgec/public_html/test.web-utility.com/
+          server-dir: /
           local-dir: ./
           exclude: |
             **/.git*
