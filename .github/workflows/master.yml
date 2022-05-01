@@ -11,19 +11,15 @@ jobs:
       - name: 🔨 Build Project
         run: |
           npm install
-          npm run build
+          npm run build:prod
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: server286.web-hosting.com
+          server: ${{ secrets.ftp_host }}
           protocol: ftp
           port: 21
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           server-dir: /
           local-dir: ./dist/testdeploy/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
